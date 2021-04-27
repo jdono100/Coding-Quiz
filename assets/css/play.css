@@ -1,0 +1,32 @@
+.container {
+    height: 100vh;
+}
+
+.options-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 2rem;
+    border: 0.2rem solid bisque;
+    background: hsla(320, 19%, 65%, 0.33);
+}
+
+.options-container:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 5px hsl(257, 100%, 87%);
+    transform: translateY(-0.1rem);
+    transition: transform 200ms;
+}
+
+.options-ltr {
+    padding: 1.5rem 2.5rem;
+    background: #DD1155;
+    font-family: monospace;
+    font-weight: 800;
+    color: ivory;
+    border-right: 2px solid bisque;
+}
+
+.options-txt {
+    padding: 1.5rem;
+}
