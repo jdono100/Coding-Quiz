@@ -11,22 +11,26 @@
 <body>
     <div class="container">
         <div id="play" class="center column">
-            <h2 id="questions">Choose the best answer for this question:</h2>
+            <div class="timer">
+                <h3>00:<span id="timer-number">60</span></h3>
+            </div>
+            <h2 id="questions">Choose the best answer:</h2>
             <div class="options-container">
                 <p class="options-ltr">A</p>
-                <p class="options-txt">Option 1</p>
+                <p class="options-txt" data-number="1">Option 1</p>
             </div>
             <div class="options-container">
                 <p class="options-ltr">B</p>
-                <p class="options-txt">Option 2</p>
+                <p class="options-txt" data-number="2">Option 2</p>
             </div> <div class="options-container">
                 <p class="options-ltr">C</p>
-                <p class="options-txt">Option 3</p>
+                <p class="options-txt" data-number="3">Option 3</p>
             </div> <div class="options-container">
                 <p class="options-ltr">D</p>
-                <p class="options-txt">Option 4</p>
+                <p class="options-txt" data-number="4">Option 4</p>
             </div>
         </div>
     </div>
+    <script src="./assets/js/game_function.js"></script>
 </body>
 </html>

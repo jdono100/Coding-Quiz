@@ -1,3 +1,7 @@
+.timer {
+    padding-bottom: 10rem;
+    color:hsla(256, 90%, 72%, 1)
+}
 .container {
     height: 100vh;
 }
@@ -13,14 +17,14 @@
 
 .options-container:hover {
     cursor: pointer;
-    box-shadow: 1px 1px 5px 5px hsl(257, 100%, 87%);
+    box-shadow: 1px 1px 5px 5px hsla(236, 90%, 72%, 0.87);
     transform: translateY(-0.1rem);
     transition: transform 200ms;
 }
 
 .options-ltr {
     padding: 1.5rem 2.5rem;
-    background: #DD1155;
+    background: hsl(340, 86%, 67%);
     font-family: monospace;
     font-weight: 800;
     color: ivory;
@@ -29,4 +33,7 @@
 
 .options-txt {
     padding: 1.5rem;
+    color: #b90ac2;
+    background: hsl(200, 86%, 67%);
+    width: 100%;
 }
