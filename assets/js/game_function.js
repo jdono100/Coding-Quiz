@@ -2,14 +2,20 @@
 var question = document.getElementById("questions");
 // Make a array for the options
 var options = Array.from(document.getElementsByClassName("options-txt"));
+// Make a var selecting the timer number
+var timerEl = document.getElementById("timer-number");
+var timer;
+var timeCount;
+// Make a var for the starting score
+var scoreEl = document.getElementById("score")
+var score = 0;
 // Make an empty object for the current question
 var currentQuestion = {};
 // Make a empty array for the list of questions
 var questionList = [];
-// Make a var for the starting score
-var score = 0;
 // Make a var boolean so the page knows when answers can be accepted
 var acceptingAnswers = false;
+var qnIndex = "";
 
 // Fill out list of questions and make new array to put them in
 var questions = [
@@ -144,50 +150,82 @@ var questions = [
 
 // Make a var for the total amount of questions in the quiz
 var maxQuestions = 18;
+
+
 // Make a function for the start of the game
 function playGame() {
     // Start the question count and score at 0
     questionCounter = 0;
-    score = 0;
+    // score = 0;
+    // Set a timeCount var to 30
+    timeCount = 45;
     // Fill the empty questionList array with the questions
     questionList = [...questions];
-    // Call the nextQuestion function
+    // Call the start timer function
+    startTimer();
+    qnIndex = Math.floor(Math.random() * questionList.length);
     nextQuestion();
 };
+// // Make the timer function
+function startTimer() {
+    // Use setInterval to decrease timeCount and a conditional statement if time runs out
+    timer = setInterval(function() {
+        timeCount--;
+        timerEl.textContent = timeCount;
+        if (timeCount === 0) {
+            clearInterval(timer);
+            return window.location.assign("./index.html");
+        }
+        // Make the interval a little bit less than 1 second to add another layer of intense gameplay
+        }, 975);
+    }
 
 function nextQuestion() {
     //Make a conditional statement for when the questions run out
-    if (questionList.length === 0 || questionCounter >= maxQuestions) {
-        // Send to home page
-        return window.location.assign("./index.html")
-    }
     // Add one to the questionCounter var for every new question
+    maxQuestions = 18;
     questionCounter++;
     // Make a math.random expression to select a random question from the list
-    var qnIndex = Math.floor(Math.random() * questionList.length);
+    qnIndex = Math.floor(Math.random() * questionList.length);
+    currentQuestion = questionList[qnIndex];  
+    
     // Change the question text to whatever question is selected
-    currentQuestion = questionList[qnIndex];
-    question.innerText = currentQuestion.question
+    question.textContent = currentQuestion["question"]
     // Change the option text to the correct options for the question
     options.forEach(option => {
-        var number = option.dataset["number"]
-        option.innerText = currentQuestion["option" + number]
-    // Use splice to remove previous question from being selected
+        var number = option.dataset["number"];
+        option.textContent = currentQuestion["option" + number];
+        // Use splice to remove previous question from being selected
+        
+    });
     questionList.splice(qnIndex, 1);
     // Set acceptingAnswers to true for this function
     acceptingAnswers = true;
-    });
-}
-// Make a function to handle option selection and acceptingAnswers timing
+    if (questionList.length === 0 || questionCounter >= maxQuestions) {
+        // Send to home page
+        return window.location.assign("./inputHighScore.html")
+    }
+};
+// Make a function to handle options being picked and acceptingAnswers timing
 options.forEach(option => {
     option.addEventListener("click", o => {
         if (!acceptingAnswers) return;
         acceptingAnswers = false;
         var chosenOption = o.target;
         var chosenAnswer = chosenOption.dataset["number"];
+        var correctAnswer = questions[qnIndex].answer
+        if (chosenAnswer = correctAnswer) {
+            increaseScore();
+        }
         console.log(chosenAnswer);
+        console.log(correctAnswer);
+        qnIndex = Math.floor(Math.random() * questionList.length);
         nextQuestion();
     })
-})
-
+});
+// Make a function for increasingScore
+function increaseScore() {
+    score = score + 10;
+    scoreEl.innerText = score;
+}
 playGame();
