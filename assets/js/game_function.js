@@ -178,7 +178,7 @@ function startTimer() {
             return window.location.assign("./inputhighscores.html");
         }
         // Make the interval a little bit less than 1 second to add another layer of intense gameplay
-        }, 975);
+        }, 990);
     }
 
 function nextQuestion() {
@@ -203,7 +203,8 @@ function nextQuestion() {
     // Set acceptingAnswers to true for this function
     acceptingAnswers = true;
     if (questionList.length === 0 || questionCounter >= maxQuestions) {
-        // Send to home page
+        localStorage.setItem("lastScore", score)
+        // Send to high score input
         return window.location.assign("./inputhighscores.html")
     }
 };
@@ -214,13 +215,10 @@ options.forEach(option => {
         acceptingAnswers = false;
         var chosenOption = o.target;
         var chosenAnswer = chosenOption.dataset["number"];
-        var correctAnswer = questions[qnIndex].answer
-        if (chosenAnswer = correctAnswer) {
+        var correctAnswer = currentQuestion.answer
+        if (chosenAnswer == correctAnswer) {
             increaseScore();
         }
-        console.log(chosenAnswer);
-        console.log(correctAnswer);
-        qnIndex = Math.floor(Math.random() * questionList.length);
         nextQuestion();
     })
 });

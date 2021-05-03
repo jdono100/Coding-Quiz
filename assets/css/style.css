@@ -84,7 +84,7 @@ h4 {
 .btn {
     width: 20rem;
     padding: 1rem 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     text-decoration: none;
     text-align: center;
     border: 0.2rem solid hsl(9, 81%, 78%);
@@ -104,4 +104,54 @@ h4 {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    width: 20rem;
+    border: none;
+    font-size: 2rem;
+}
+input:hover {
+    box-shadow: 1px 1px 5px 2px hsl(257, 80%, 67%);
+}
+input::placeholder {
+    color: hsla(263, 21%, 30%, 0.7);
+}
+.pop-up {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 10vw;
+    margin: 5% auto;
+    text-align: center;
+    width: 70%;
+    height: 70%;
+    border: 8px solid #69b4ff;
+    border-radius: 3px;
+    background: hsla(330, 80%, 81%, 0.925);
+    box-shadow: 2px 3px 5px 3px;
+    overflow: hidden;
+}
+#pop-up-txt {
+    width: 80%;
+    margin: 0.75em 2em;
+    padding: 1rem;
+    font-size: 4rem;
+    color: white;
+    text-decoration: underline;    
+    border-radius: 5px;
+}
+.pop-up-list {
+    width: 80%;
+    margin: 1em 2em;
+    color: white;
+    font-size: 2.2rem;
+    line-height: 2em;
 }

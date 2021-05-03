@@ -47,3 +47,6 @@ span {
     background: hsl(200, 86%, 67%);
     width: 100%;
 }
+#timer-number {
+    color: #422040;
+}

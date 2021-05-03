@@ -8,29 +8,30 @@
     <link type="text/css" rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <div class="pop-up center column" id="pop-up-id">
+        <div id="pop-up-txt">
+            <h6>High Scores</h6>
+        </div>
+        <div class="pop-up-list">
+            <ol id="scores-list">
+                <li>Score 0</li>
+            </ol>
+        </div>
+        <div class="close-box btn">
+            <h6>Close</h6>
+        </div>
+    </div>
     <div class="container">
         <div id="start-screen" class="center column">
             <h1>Timed Coding Quiz</h1>
             <a class="btn" href="./play.html">Start </a>
-            <a class="btn" href="/highscores.html">View High Scores</a>
-        </div>
-        <div class="pop-up" id="pop-up-id">
-            <div id="pop-up-text">
-                <h6>High Scores</h6>
-            </div>
-            <div class="pop-up-list">
-                <ul class="scores-list">
-                    <li>Score: 1</li>
-                </ul>
-            </div>
-            <div class="close-box">
-                <h6>Close</h6>
-            </div>
+            <button class="btn" id="open-scores">View High Scores</a>
         </div>
     </div>
     <div class="footer center column center-text">
         <h4>Made by Jared Donovan with 🧡, CSS & Javascript</h3>
         <h4>My Github: <a href="https://github.com/jdono100">github.com/jdono100</a></h4>    
     </div>
+    <script src="./assets/js/scores_list.js"></script>
 </body>
 </html>

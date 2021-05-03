@@ -9,10 +9,17 @@
     <link rel="stylesheet" href="./assets/css/play.css">
 </head>
 <body>
-    <main class="container">
+    <main class="container column center">
         <h2>Game Over!</h2>
-        
+        <h1 id="finalscore">0</h1>
+        <form class="column">
+            <input type="text" name="playername" id="playername" placeholder="Player Name" />
+            <button type="submit" class="btn" id="save-score-btn" onclick="saveHighScore(event)" disabled>Save</button>
+        </form>
+        <a class="btn" href="./index.html">Home</a>
+        <a class="btn" href="./play.html">Play Again</a>
     </main>
-        <script src="./assets/js/game_function.js"></script>
+          <!-- I used a second javascript page to reduce clutter and not have other functions execute on the end screen -->
+        <script src="./assets/js/high_scores.js"></script>
 </body>
 </html>
