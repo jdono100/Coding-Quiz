@@ -20,7 +20,9 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: center;
 }
-
+a {
+    color: hsl(263, 21%, 30%)
+}
 h1 {
     font-size: 6rem;
     color: hsl(77, 100%, 92%);

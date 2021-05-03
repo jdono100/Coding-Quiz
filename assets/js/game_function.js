@@ -174,7 +174,8 @@ function startTimer() {
         timerEl.textContent = timeCount;
         if (timeCount === 0) {
             clearInterval(timer);
-            return window.location.assign("./index.html");
+            // Send to input high score page
+            return window.location.assign("./inputhighscores.html");
         }
         // Make the interval a little bit less than 1 second to add another layer of intense gameplay
         }, 975);
@@ -203,7 +204,7 @@ function nextQuestion() {
     acceptingAnswers = true;
     if (questionList.length === 0 || questionCounter >= maxQuestions) {
         // Send to home page
-        return window.location.assign("./inputHighScore.html")
+        return window.location.assign("./inputhighscores.html")
     }
 };
 // Make a function to handle options being picked and acceptingAnswers timing
