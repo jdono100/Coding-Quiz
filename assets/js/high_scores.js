@@ -20,7 +20,7 @@ function saveHighScore(event) {
     event.preventDefault();
     // Make an object with properties referencing the score and playerName
     var score = {
-        score: lastScore,
+        score: JSON.parse(lastScore),
         name: playerName.value
     };
     // Push the score to the highScoresList
